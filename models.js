@@ -1,15 +1,6 @@
 const uuid = require('uuid');
 
-// this module provides volatile storage, using a `ShoppingList`
-// and `Recipes` model. We haven't learned about databases yet,
-// so for now we're using in-memory storage. This means each time
-// the app stops, our storage gets erased.
-
-// don't worry to much about how `ShoppingList` and `Recipes`
-// are implemented. Our concern in this example is with how
-// the API layer is implemented, and getting it to use an
-// existing model.
-
+const say = (s) => { console.log(s); };
 
 function StorageException(message) {
    this.message = message;
@@ -36,7 +27,7 @@ const ShoppingList = {
     delete this.items[id];
   },
   update: function(updatedItem) {
-    console.log(`Deleting shopping list item \`${updatedItem.id}\``);
+    console.log(`Upping shopping list item \`${updatedItem.id}\``);
     const {id} = updatedItem;
     if (!(id in this.items)) {
       throw StorageException(
